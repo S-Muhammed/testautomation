@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "1e8e2841-6f75-4b0f-9dee-714f99326516",
+		"name": "Salimonu Muhammed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "Get all employee data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08fa740f-2b2f-4758-b794-dfd5361f28c4",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string called OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"pm.test(\"Data should be returned as Tiger Nixon\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\\employee_name\\\":\\\"Tiger Nixon\\\"\");\r",
+									"});\r",
+									"pm.test(\"Data should be returned as Cedric Kelly\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\\employee_name\\\":\\\"Cedric Kelly\\\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{employeebaseURL}}/api/v1/employees",
+							"host": [
+								"{{employeebaseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees"
+							]
+						},
+						"description": "http://dummy.restapiexample.com/api/v1/employees"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single employee data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e3cbbca6-75f3-455e-a224-8329c3a778cc",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Status code name has string named Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{employeebaseURL}}/api/v1/employees/1",
+							"host": [
+								"{{employeebaseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"1"
+							]
+						},
+						"description": "http://dummy.restapiexample.com/api/v1/employee/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8e3441c6-07dd-434c-80b8-0afb20ae63b5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string named OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{employeebaseURL}}",
+							"host": [
+								"{{employeebaseURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Create new record in database",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85f30f90-2878-4c53-bd9a-974d448b147e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string named OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{employeebaseURL}}/api/v1/create",
+							"host": [
+								"{{employeebaseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "442ee648-37cb-487c-ac89-2e0f5b938d7d",
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});\r",
+									"pm.test(\"Status code name has string named Method Not Allowed\", function () {\r",
+									"    pm.response.to.have.status(\"Method Not Allowed\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{employeebaseURL}}/api/v1/update/21",
+							"host": [
+								"{{employeebaseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"update",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72c35f49-cd41-43f3-adfb-8cbbb17a6701",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string named OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.getpostman.com/collections/e2ef3891a310b1ee7482",
+							"protocol": "https",
+							"host": [
+								"www",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections",
+								"e2ef3891a310b1ee7482"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "Delete an employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30fa0882-944c-40aa-8d8b-65bf4df8f8ea",
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});\r",
+									"pm.test(\"Status code name has string named Method Not Allowed\", function () {\r",
+									"    pm.response.to.have.status(\"Method Not Allowed\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{employeebaseURL}}/api/v1/update/831",
+							"host": [
+								"{{employeebaseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"update",
+								"831"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Post Request",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete Request",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "33988573-d31b-4540-a5b5-e5b226918729",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e72233ce-5d43-4513-99e5-d03eae647c96",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
